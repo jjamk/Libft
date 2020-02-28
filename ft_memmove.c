@@ -6,13 +6,15 @@
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 22:54:25 by skang             #+#    #+#             */
-/*   Updated: 2020/02/27 01:33:07 by skang            ###   ########.fr       */
+/*   Updated: 2020/02/28 18:31:28 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memmove(void *dst, const void *src, unsigned int len)
+#include "libft.h"
+
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int			i;
+	size_t			i;
 	unsigned char		*dstr;
 	const unsigned char	*sstr;
 

@@ -6,14 +6,16 @@
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 16:24:31 by skang             #+#    #+#             */
-/*   Updated: 2020/02/27 17:15:38 by skang            ###   ########.fr       */
+/*   Updated: 2020/02/28 19:24:35 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcat(char *dst, const char *src, unsigned int dstsize)
+#include "libft.h"
+
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	unsigned int i;
-	unsigned int dlen;
+	size_t	i;
+	size_t	dlen;
 
 	dlen = 0;
 	i = 0;

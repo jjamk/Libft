@@ -6,14 +6,16 @@
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 21:56:04 by skang             #+#    #+#             */
-/*   Updated: 2020/02/26 22:13:21 by skang            ###   ########.fr       */
+/*   Updated: 2020/02/28 18:28:22 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_bzero(void *s, unsigned int n)
+#include "libft.h"
+
+void	ft_bzero(void *s, size_t n)
 {
-	unsigned char *str;
-	int		i;
+	unsigned char		*str;
+	int			i;
 
 	i = 0;
 	str = (unsigned char*)s;
@@ -25,4 +27,5 @@ void	ft_bzero(void *s, unsigned int n)
 		n--;
 		i++;
 	}
+	return (s);
 }

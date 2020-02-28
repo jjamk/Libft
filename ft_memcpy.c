@@ -6,15 +6,18 @@
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 22:15:57 by skang             #+#    #+#             */
-/*   Updated: 2020/02/27 01:36:00 by skang            ###   ########.fr       */
+/*   Updated: 2020/02/28 18:29:45 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void *dst, const void *src, unsigned int n)
+#include "libft.h"
+
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int		i;
+	size_t		i;
 	unsigned char	*dstr;
 	unsigned char	*sstr;
+
 	dstr = (unsigned char*)dst;
 	sstr = (unsigned char*)src;
 	i = 0;
