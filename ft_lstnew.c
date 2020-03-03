@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 21:56:04 by skang             #+#    #+#             */
-/*   Updated: 2020/03/03 01:43:46 by skang            ###   ########.fr       */
+/*   Created: 2020/03/03 13:45:43 by skang             #+#    #+#             */
+/*   Updated: 2020/03/03 14:34:32 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+t_list *ft_lstnew(void *content)
 {
-	unsigned char		*str;
-	int			i;
-
-	i = 0;
-	str = (unsigned char*)s;
-	if (n == 0)
-		return ;
-	while(n > 0)
-	{
-		str[i] = 0;
-		n--;
-		i++;
-	}
-	return ((void)s);
+	t_list *list;
+	
+	if (!(list = malloc(sizeof(*list))))
+		return (NULL);
+	list -> content = content;
+	list -> next = NULL;
+	return (list);
 }

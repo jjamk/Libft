@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 21:56:04 by skang             #+#    #+#             */
-/*   Updated: 2020/03/03 01:43:46 by skang            ###   ########.fr       */
+/*   Created: 2020/03/03 00:18:46 by skang             #+#    #+#             */
+/*   Updated: 2020/03/03 00:29:58 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
-void	ft_bzero(void *s, size_t n)
+void	ft_putstr_fd(char *s, int fd)
 {
-	unsigned char		*str;
-	int			i;
+	int i;
 
 	i = 0;
-	str = (unsigned char*)s;
-	if (n == 0)
-		return ;
-	while(n > 0)
+	while (s[i] != '\0')
 	{
-		str[i] = 0;
-		n--;
+		write(fd, &s[i], sizeof(s[i]));
 		i++;
 	}
-	return ((void)s);
 }
