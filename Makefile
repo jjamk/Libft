@@ -6,7 +6,7 @@
 #    By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/02 18:02:39 by skang             #+#    #+#              #
-#    Updated: 2020/03/03 19:09:12 by skang            ###   ########.fr        #
+#    Updated: 2020/03/08 00:41:30 by skang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,22 +36,23 @@ BONUS_OBJS = ft_lstnew.o ft_lstadd_front.o ft_lstsize.o ft_lstlast.o \
 	ft_lstadd_back.o ft_lstdelone.o ft_lstclear.o ft_lstiter.o \
 	ft_lstmap.o
 
-INCLUDES = ./
 CFLAGS = -Wall -Wextra -Werror
 all : $(TARGET)
 
-	$(TARGET) : $(OBJS) libft.h
-		$(CC) $(CDFLAGS) -I$(INCLUDES) -c $(SRCS)
-		ar rc $(NAME) $(OBJS)
-		ranlib $(NAME)
+$(TARGET) : $(OBJS)
+	ar rc $@ $^
 
-bonus : $(BONUS_OBJS)
-	@ar rc $(TARGET) 
-		
+bonus: $(BONUS)
+	ar rc $(TARGET) $^
+
+%.o: %.c libft.h
+	$(CC) $(CFLAGS) -c $< -o $@
+
+
 clean :
-	@/bin/rm -f $(OBJS)
+	@/bin/rm -f $(OBJS) $(BONUS_OBJS)
 
-fclean : 
+fclean : clean
 	@/bin/rm -f $(TARGET)
 
 re : fclean all
