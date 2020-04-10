@@ -6,13 +6,13 @@
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 20:07:29 by skang             #+#    #+#             */
-/*   Updated: 2020/02/28 20:59:59 by skang            ###   ########.fr       */
+/*   Updated: 2020/04/10 20:32:16 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strdup(const char *s1)
+char	*ft_strdup(const char *s1)
 {
 	char	*dest;
 	int		i;

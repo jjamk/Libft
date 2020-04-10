@@ -6,13 +6,13 @@
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 18:37:34 by skang             #+#    #+#             */
-/*   Updated: 2020/03/03 00:02:21 by skang            ###   ########.fr       */
+/*   Updated: 2020/04/10 20:25:14 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_wlen(char *str, char c)
+static int	ft_wlen(char const *str, char c)
 {
 	int	num;
 
@@ -35,7 +35,7 @@ static int	ft_wlen(char *str, char c)
 	return (num);
 }
 
-static int	ft_slen(char *str, char c)
+static int	ft_slen(char const *str, char c)
 {
 	int cnt;
 
@@ -59,7 +59,6 @@ static void	ft_free(char **res)
 		i++;
 	}
 	free(res);
-	return (NULL);
 }
 
 char		**ft_split(char const *s, char c)
@@ -70,7 +69,8 @@ char		**ft_split(char const *s, char c)
 
 	i = 0;
 	j = 0;
-	if (!(s && res = (char **)malloc(sizeof(char *) * (ft_wlen(s, c) + 1))))
+	if (!(s && (res = (char **)malloc(sizeof(char *) \
+					* (ft_wlen(s, c) + 1)))))
 		return (NULL);
 	while (*s)
 	{
@@ -78,8 +78,12 @@ char		**ft_split(char const *s, char c)
 			s++;
 		if (*s != c && *s)
 		{
-			if (!(res[i] = (char *)malloc(sizeof(char) * (ft_slen(s, c) + 1))))
-				return (ft_free(res));
+			if (!(res[i] = \
+		(char *)malloc(sizeof(char) * (ft_slen(s, c) + 1))))
+			{
+				ft_free(res);
+				return (NULL);
+			}
 			while (*s && *s != c)
 				res[i][j++] = '\0';
 			i++;

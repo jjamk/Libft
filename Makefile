@@ -6,12 +6,12 @@
 #    By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/02 18:02:39 by skang             #+#    #+#              #
-#    Updated: 2020/03/08 00:41:30 by skang            ###   ########.fr        #
+#    Updated: 2020/04/10 19:47:58 by skang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
-TARGET = libft.a
+NAME = libft.a
 SRCS = ft_isalpha.c ft_memcmp.c	ft_putstr_fd.c ft_strlen.c ft_tolower.c \
        ft_isascii.c ft_memcpy.c ft_strmapi.c ft_toupper.c \
        ft_isdigit.c ft_memmove.c ft_strchr.c ft_strncmp.c ft_atoi.c \
@@ -37,13 +37,13 @@ BONUS_OBJS = ft_lstnew.o ft_lstadd_front.o ft_lstsize.o ft_lstlast.o \
 	ft_lstmap.o
 
 CFLAGS = -Wall -Wextra -Werror
-all : $(TARGET)
+all : $(NAME)
 
-$(TARGET) : $(OBJS)
+$(NAME) : $(OBJS)
 	ar rc $@ $^
 
 bonus: $(BONUS)
-	ar rc $(TARGET) $^
+	ar rc $(NAME) $^
 
 %.o: %.c libft.h
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -53,6 +53,6 @@ clean :
 	@/bin/rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean : clean
-	@/bin/rm -f $(TARGET)
+	@/bin/rm -f $(NAME)
 
 re : fclean all
