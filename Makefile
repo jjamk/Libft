@@ -6,7 +6,7 @@
 #    By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/02 18:02:39 by skang             #+#    #+#              #
-#    Updated: 2020/04/10 19:47:58 by skang            ###   ########.fr        #
+#    Updated: 2020/04/10 21:49:57 by skang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	ar rc $@ $^
 
-bonus: $(BONUS)
+bonus: $(BONUS_OBJS)
 	ar rc $(NAME) $^
 
 %.o: %.c libft.h

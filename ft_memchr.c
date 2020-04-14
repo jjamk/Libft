@@ -6,7 +6,7 @@
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 15:07:23 by skang             #+#    #+#             */
-/*   Updated: 2020/02/28 18:32:03 by skang            ###   ########.fr       */
+/*   Updated: 2020/04/10 21:41:02 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,16 @@
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	const unsigned char	*str;
-	int			i;
+	size_t			i;
 
 	str = (const unsigned char*)s;
 	i = 0;
+	if (n <= 0)
+		return ((void*)'\0');
 	while (n-- > 0)
 	{
-		if (str[i] == c)
-			return ((void*)s + i);
+		if (str[i] == (unsigned char)c)
+			return ((void*)&str[i]);
 		i++;
 	}
 	return ((void*)'\0');

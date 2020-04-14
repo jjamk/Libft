@@ -6,7 +6,7 @@
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 14:51:48 by skang             #+#    #+#             */
-/*   Updated: 2020/03/03 15:23:50 by skang            ###   ########.fr       */
+/*   Updated: 2020/04/10 22:56:26 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_lstsize(t_list *lst)
 
 	list = lst;
 	i = 0;
-	while (lst)
+	while (list)
 	{
 		list = list -> next;
 		i++;

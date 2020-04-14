@@ -6,7 +6,7 @@
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 16:24:31 by skang             #+#    #+#             */
-/*   Updated: 2020/02/28 19:24:35 by skang            ###   ########.fr       */
+/*   Updated: 2020/04/12 02:29:12 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,23 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 	size_t	dlen;
+	size_t	slen;
 
-	dlen = 0;
+	slen = ft_strlen(src);
+	dlen = ft_strlen(dst);
 	i = 0;
-	while (dst[dlen] != '\0')
-		dlen++;
-	while (src[i] != '\0' && i + dlen + 1 < dstsize)
+	if (dstsize == 0)
+		return (slen);
+	if (dstsize < dlen)
+		slen += dstsize;
+	else
+		slen += dlen;
+	while (*src != 0 && dlen + 1 < dstsize)
 	{
-		dst[dlen + i] = src[i];
-		i++;
+		*(dst + dlen) = *src;
+		dlen++;
+		src++;
 	}
-	dst[dlen + i] = '\0';
-	if (sizeof(dst) < dstsize)
-		return (dlen + i);
-	return (dstsize);
+	*(dst + dlen) = '\0';
+	return (slen);
 }

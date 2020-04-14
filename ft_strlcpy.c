@@ -6,7 +6,7 @@
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 16:14:32 by skang             #+#    #+#             */
-/*   Updated: 2020/02/28 19:23:22 by skang            ###   ########.fr       */
+/*   Updated: 2020/04/12 02:34:57 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	size_t	i;
 
 	i = 0;
+	if (!dst)
+		return (0);
+	if (!dstsize)
+		return (ft_strlen(src));
 	while (src[i] != '\0' && i + 1 < dstsize)
 	{
 		dst[i] = src[i];

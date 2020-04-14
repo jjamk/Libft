@@ -6,7 +6,7 @@
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 22:54:25 by skang             #+#    #+#             */
-/*   Updated: 2020/02/28 18:31:28 by skang            ###   ########.fr       */
+/*   Updated: 2020/04/12 01:49:59 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,19 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	unsigned char		*dstr;
 	const unsigned char	*sstr;
 
-	i = -1;
+	i = 0;
 	dstr = (unsigned char*)dst;
 	sstr = (unsigned char*)src;
-	if (dst <= src)
+	if (sstr < dstr)
 	{
-		while (++i < len)
-			dstr[i] = sstr[i];
+		while (++i <= len)
+			dstr[len - i] = sstr[len - i];
 	}
 	else
 	{
-		i = len + 1;
 		while (len-- > 0)
 		{
-			dstr[i] = sstr[i];
-			i--;
+			*(dstr++) = *(sstr++);
 		}
 	}
 	return (dst);
