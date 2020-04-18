@@ -5,25 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/27 18:31:55 by skang             #+#    #+#             */
-/*   Updated: 2020/02/27 18:40:04 by skang            ###   ########.fr       */
+/*   Created: 2020/04/18 17:10:09 by skang             #+#    #+#             */
+/*   Updated: 2020/04/18 17:11:35 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strrchr(const char *s, int c)
-{
-	char	*str;
-	int	i;
+#include "libft.h"
 
-	str = (char*)s;
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	while (i > 0)
+char	*ft_strrchr(const char *s, int c)
+{
+	char *str;
+
+	str = NULL;
+	while (*s)
 	{
-		if (s[i] == c)
-			return (str + i);
-		i--;
+		if (*s == c)
+			str = (char*)s;
+		s++;
 	}
-	return (0);
+	if (*s == c)
+		str = (char*)s;
+	return (str);
 }

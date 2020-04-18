@@ -6,7 +6,7 @@
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 18:40:33 by skang             #+#    #+#             */
-/*   Updated: 2020/04/12 03:36:55 by skang            ###   ########.fr       */
+/*   Updated: 2020/04/18 15:53:34 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,17 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	char *hstr;
-	char *nstr;
+	size_t	nlen;
 
 	if (len == 0)
 		return (0);
 	if (!*needle)
 		return ((char*)haystack);
-	while (len-- > 0 && *haystack != '\0')
+	nlen = ft_strlen(needle);
+	while (*haystack && len-- >= nlen)
 	{
-		hstr = (char*)haystack;
-		nstr = (char*)needle;
-		while (*nstr != '\0' && *hstr == *nstr)
-		{
-			nstr++;
-			hstr++;
-		}
-		if (*nstr == '\0')
+		if (*haystack == *needle && \
+				ft_strncmp(haystack, needle, nlen) == 0)
 			return ((char*)haystack);
 		haystack++;
 	}
