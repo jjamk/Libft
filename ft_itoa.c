@@ -6,7 +6,7 @@
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 19:05:17 by skang             #+#    #+#             */
-/*   Updated: 2020/03/03 00:01:43 by skang            ###   ########.fr       */
+/*   Updated: 2020/04/19 16:18:59 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,42 +18,43 @@ static int	ft_len(int n)
 
 	i = 0;
 	if (n < 0)
+	{
 		n *= -1;
-	while (n > 10)
+		i++;
+	}
+	while (n > 0)
 	{
 		n = n / 10;
 		i++;
 	}
-	i++;
 	return (i);
 }
 
 char	*ft_itoa(int n)
 {
-	char *str;
-	int num;
-	int i;
+	char	*str;
+	int	i;
 
-	num = 1;
 	i = ft_len(n);
-	while (i-- > 1)
-		num *= 10;
-	if (!(str = (char*)malloc(sizeof(char) * ft_len(n) + 1)))
+	if (!(str = (char*)malloc(sizeof(char) * (i + 1))))
 		return (NULL);
+	if (n == -2147483648)
+		return ("-2147483648");
+	str[i--] = '\0';
+	if (n == 0)
+	{
+		str[0] = '0';
+		return (str);
+	}
 	if (n < 0)
 	{
 		n *= -1;
 		str[0] = '-';
-		i = 1;
 	}
-	while (num > 1)
+	while (n > 0)
 	{
-		str[i++] = (n / num) + '0';
-		n %= num;
-		num /= 10; 
+		str[i--] = (n % 10) + '0';
+		n /= 10; 
 	}
-	str[i++] = n + '0';
-	str[i] = '\0';
-	
 	return (str);
 }

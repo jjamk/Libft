@@ -6,32 +6,36 @@
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 14:08:12 by skang             #+#    #+#             */
-/*   Updated: 2020/04/10 20:50:14 by skang            ###   ########.fr       */
+/*   Updated: 2020/04/19 17:15:11 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static int	ft_set(char a, char const *set)
+{
+	while (*set)
+		if (a == *set++)
+			return (1);
+	return (0);
+}
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	start;
-	size_t	end;
-	char	*new;
+	char	*begin;
+	char	*end;
+	char	*str;
+	size_t	len;
 
-	if (!(s1 && set))
+	begin = (char*)s1;
+	end = begin + ft_strlen(s1);
+	while (*begin && ft_set(*begin, set))
+		begin++;
+	while (begin < end && ft_set(*(end - 1), set))
+		end--;
+	len = end - begin + 1;
+	if (!(str = malloc(len)))
 		return (NULL);
-	start = 0;
-	while (s1[start] && ft_strchr(set, s1[start]))
-		start++;
-	end = ft_strlen(s1 + start);
-	if (end)
-	{
-		while (s1[end + start - 1] != 0 && ft_strchr(set, s1[end + start - 1]) != 0)
-			end--;
-	}
-	if (!(new = malloc(sizeof(char) * end + 1)))
-		return (NULL);
-	ft_strncpy(new, s1 + start, end);
-	new[end] = '\0';
-	return (new);
+	ft_strlcpy(str, begin, len);
+	return (str);
 }
