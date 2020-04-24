@@ -5,91 +5,94 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/02 18:37:34 by skang             #+#    #+#             */
-/*   Updated: 2020/04/10 20:25:14 by skang            ###   ########.fr       */
+/*   Created: 2020/04/22 21:43:58 by skang             #+#    #+#             */
+/*   Updated: 2020/04/24 18:00:00 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_wlen(char const *str, char c)
+static int	ft_slen(char const *s, char c)
 {
-	int	num;
+	int a;
+	int b;
 
-	num = 0;
-	if (*str != c && *str)
+	a = 0;
+	b = 0;
+	if (!*s)
+		return (0);
+	while (*s != '\0')
 	{
-		str++;
-		num++;
-	}
-	while(*str)
-	{
-		while (*str == c)
+		if (*s == c)
+			b = 0;
+		else if (b == 0)
 		{
-			str++;
-			if (*str != c && *str)
-				num++;
+			b = 1;
+			a++;
 		}
-		str++;
+		s++;
 	}
-	return (num);
+	return (a);
 }
 
-static int	ft_slen(char const *str, char c)
+static int	ft_clen(char const *s, char c, int i)
 {
-	int cnt;
+	int len;
 
-	cnt = 0;
-	while (*str != c && *str)
+	len = 0;
+	while (s[i] != c && s[i])
 	{
-		cnt++;
-		str++;
-	}
-	return (cnt);
-}
-
-static void	ft_free(char **res)
-{
-	int i;
-
-	i = 0;
-	while (res[i])
-	{
-		free(res[i]);
+		len++;
 		i++;
 	}
-	free(res);
+	return (len);
 }
 
-char		**ft_split(char const *s, char c)
+static char	**ft_free(char const **str, int b)
 {
-	int	i;
-	int	j;
-	char	**res;
-
-	i = 0;
-	j = 0;
-	if (!(s && (res = (char **)malloc(sizeof(char *) \
-					* (ft_wlen(s, c) + 1)))))
-		return (NULL);
-	while (*s)
+	while (b > 0)
 	{
-		while (*s == c && *s)
-			s++;
-		if (*s != c && *s)
-		{
-			if (!(res[i] = \
-		(char *)malloc(sizeof(char) * (ft_slen(s, c) + 1))))
-			{
-				ft_free(res);
-				return (NULL);
-			}
-			while (*s && *s != c)
-				res[i][j++] = '\0';
-			i++;
-			j = 0;
-		}
+		b--;
+		free((void*)str[b]);
 	}
-	res[i] = 0;
-	return (res);
+	free(str);
+	return (0);
+}
+
+static char	**split(char const *s, char **str, char c, int i)
+{
+	int	a;
+	int	b;
+	int	d;
+
+	a = 0;
+	b = 0;
+	while (s[a] && b < i)
+	{
+		d = 0;
+		while (s[a] == c)
+			a++;
+		str[b] = (char*)malloc(sizeof(char) * ft_clen(s, c, a) + 1);
+		if (!str[b])
+			return (ft_free((char const **)str, b));
+		while (s[a] && s[a] != c)
+			str[b][d++] = s[a++];
+		str[b][d] = '\0';
+		b++;
+	}
+	str[b] = 0;
+	return (str);
+}
+
+char	**ft_split(char  const *s, char c)
+{
+	char	**str;
+	int	i;
+
+	if (!s)
+		return (0);
+	i = ft_slen(s, c);
+	if (!(str = (char**)malloc(sizeof(char*) * (i + 1))))
+		return (0);
+	return (split(s, str, c, i));
 }
