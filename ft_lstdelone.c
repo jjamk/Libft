@@ -6,7 +6,7 @@
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 15:46:29 by skang             #+#    #+#             */
-/*   Updated: 2020/03/03 15:56:11 by skang            ###   ########.fr       */
+/*   Updated: 2020/04/24 19:39:53 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 	list = lst;
 	if (!lst)
 		return ;
-	(*del)(list -> content);
+	(*del)(list->content);
 	free(list);
 }

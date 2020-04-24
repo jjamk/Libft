@@ -6,7 +6,7 @@
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 15:56:23 by skang             #+#    #+#             */
-/*   Updated: 2020/04/10 22:33:56 by skang            ###   ########.fr       */
+/*   Updated: 2020/04/24 19:39:27 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 		return ;
 	while (*lst)
 	{
-		(*del)((*lst) -> content);
+		(*del)((*lst)->content);
 		list = *lst;
-		*lst = list -> next;
+		*lst = list->next;
 		free(list);
 	}
 	*lst = NULL;

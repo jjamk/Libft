@@ -6,13 +6,13 @@
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/22 21:43:58 by skang             #+#    #+#             */
-/*   Updated: 2020/04/24 18:00:00 by skang            ###   ########.fr       */
+/*   Updated: 2020/04/24 19:25:47 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_slen(char const *s, char c)
+static int			ft_slen(char const *s, char c)
 {
 	int a;
 	int b;
@@ -35,7 +35,7 @@ static int	ft_slen(char const *s, char c)
 	return (a);
 }
 
-static int	ft_clen(char const *s, char c, int i)
+static int			ft_clen(char const *s, char c, int i)
 {
 	int len;
 
@@ -48,7 +48,7 @@ static int	ft_clen(char const *s, char c, int i)
 	return (len);
 }
 
-static char	**ft_free(char const **str, int b)
+static char			**ft_free(char const **str, int b)
 {
 	while (b > 0)
 	{
@@ -59,7 +59,7 @@ static char	**ft_free(char const **str, int b)
 	return (0);
 }
 
-static char	**split(char const *s, char **str, char c, int i)
+static char			**split(char const *s, char **str, char c, int i)
 {
 	int	a;
 	int	b;
@@ -84,10 +84,10 @@ static char	**split(char const *s, char **str, char c, int i)
 	return (str);
 }
 
-char	**ft_split(char  const *s, char c)
+char				**ft_split(char const *s, char c)
 {
 	char	**str;
-	int	i;
+	int		i;
 
 	if (!s)
 		return (0);

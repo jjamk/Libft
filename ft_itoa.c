@@ -6,13 +6,13 @@
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 19:05:17 by skang             #+#    #+#             */
-/*   Updated: 2020/04/24 18:56:37 by skang            ###   ########.fr       */
+/*   Updated: 2020/04/24 19:33:18 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_len(int n)
+static int		ft_len(int n)
 {
 	int i;
 
@@ -30,7 +30,7 @@ static int	ft_len(int n)
 	return (i);
 }
 
-static char	*ft_strcpy(char *str, char *a)
+static char		*ft_strcpy(char *str, char *a)
 {
 	size_t i;
 
@@ -43,10 +43,10 @@ static char	*ft_strcpy(char *str, char *a)
 	return (str);
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	char	*str;
-	int	i;
+	int		i;
 
 	i = ft_len(n);
 	if (!(str = (char*)malloc(sizeof(char) * (i + 1))))
@@ -67,7 +67,7 @@ char	*ft_itoa(int n)
 	while (n > 0)
 	{
 		str[i--] = (n % 10) + '0';
-		n /= 10; 
+		n /= 10;
 	}
 	return (str);
 }

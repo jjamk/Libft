@@ -6,13 +6,13 @@
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 15:23:59 by skang             #+#    #+#             */
-/*   Updated: 2020/04/10 22:22:47 by skang            ###   ########.fr       */
+/*   Updated: 2020/04/24 19:37:47 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list *ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
 	t_list *list;
 
@@ -21,9 +21,9 @@ t_list *ft_lstlast(t_list *lst)
 		return (NULL);
 	while (list)
 	{
-		if (list -> next == NULL)
+		if (list->next == NULL)
 			return (list);
-		list = list -> next;
+		list = list->next;
 	}
 	return (list);
 }

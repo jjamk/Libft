@@ -6,7 +6,7 @@
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 16:14:32 by skang             #+#    #+#             */
-/*   Updated: 2020/04/12 02:34:57 by skang            ###   ########.fr       */
+/*   Updated: 2020/04/24 19:28:20 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		i++;
 	return (i);
 }
-

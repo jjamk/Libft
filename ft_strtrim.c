@@ -6,7 +6,7 @@
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 14:08:12 by skang             #+#    #+#             */
-/*   Updated: 2020/04/19 17:15:11 by skang            ###   ########.fr       */
+/*   Updated: 2020/04/24 19:26:32 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	ft_set(char a, char const *set)
 	return (0);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char		*ft_strtrim(char const *s1, char const *set)
 {
 	char	*begin;
 	char	*end;

@@ -6,7 +6,7 @@
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 21:10:05 by skang             #+#    #+#             */
-/*   Updated: 2020/02/28 18:22:54 by skang            ###   ########.fr       */
+/*   Updated: 2020/04/24 19:32:10 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	unsigned char 	*str;
+	unsigned char	*str;
 
 	str = (unsigned char*)b;
-	while(len > 0)
+	while (len > 0)
 	{
 		*str = (unsigned char)c;
 		len--;

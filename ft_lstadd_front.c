@@ -6,16 +6,16 @@
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 14:34:43 by skang             #+#    #+#             */
-/*   Updated: 2020/03/03 14:51:31 by skang            ###   ########.fr       */
+/*   Updated: 2020/04/24 19:44:00 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
-{	
+{
 	if (!new || !lst)
 		return ;
-	new -> next = *lst;
+	new->next = *lst;
 	*lst = new;
 }

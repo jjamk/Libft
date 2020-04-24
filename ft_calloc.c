@@ -6,7 +6,7 @@
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 20:03:55 by skang             #+#    #+#             */
-/*   Updated: 2020/02/28 20:59:43 by skang            ###   ########.fr       */
+/*   Updated: 2020/04/24 19:44:14 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,3 @@ void	*ft_calloc(size_t count, size_t size)
 	ft_memset(a, 0, count * size);
 	return (a);
 }
-
