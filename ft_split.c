@@ -6,7 +6,7 @@
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/22 21:43:58 by skang             #+#    #+#             */
-/*   Updated: 2020/04/24 19:25:47 by skang            ###   ########.fr       */
+/*   Updated: 2020/05/01 23:39:50 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,12 @@ static char			**ft_free(char const **str, int b)
 	{
 		b--;
 		free((void*)str[b]);
+		str[b] = NULL;
 	}
 	free(str);
+	str = NULL;
+
+	// 댕글링포인터
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: skang <skang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 22:56:24 by skang             #+#    #+#             */
-/*   Updated: 2020/04/24 19:28:46 by skang            ###   ########.fr       */
+/*   Updated: 2020/05/03 19:02:16 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,29 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char *res;
-	char *a;
+	int		i;
+	int		len1;
+	int		len2;
+	char	*str;
 
-	if ((a = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)))) == 0)
-		return (NULL);
-	res = a;
-	while (*s1)
+	if (s1 && s2)
 	{
-		*a = *s1;
-		s1++;
-		a++;
+		len1 = ft_strlen(s1);
+		len2 = ft_strlen(s2);
+		str = (char*)malloc(sizeof(char) * (len1 + len2 + 1));
+		if (str == NULL)
+			return (NULL);
+		i = -1;
+		while (s1[++i])
+			str[i] = s1[i];
+		i = -1;
+		while (s2[++i])
+		{
+			str[len1] = s2[i];
+			len1++;
+		}
+		str[len1] = '\0';
+		return (str);
 	}
-	while (*s2)
-	{
-		*a = *s2;
-		a++;
-		s2++;
-	}
-	return (res);
+	return (NULL);
 }
